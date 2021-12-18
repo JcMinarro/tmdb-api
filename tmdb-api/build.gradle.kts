@@ -149,6 +149,17 @@ afterEvaluate {
         }
     }
     signing {
+        val signingKey = System.getenv("SIGNING_KEY")
+        val signingPassword = System.getenv("SIGNING_PASSWORD")
+        val signingKeyId = System.getenv("SIGNING_KEY_ID")
+        if (signingKey != null && signingPassword != null && signingKeyId != null) {
+            useInMemoryPgpKeys(
+                signingKeyId,
+                signingKey,
+                signingPassword
+            )
+        }
+
         sign(publishing.publications)
     }
 }
