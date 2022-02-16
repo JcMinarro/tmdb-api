@@ -138,7 +138,7 @@ data class TmdbCast(
     @SerialName("popularity") override val popularity: Float, // has e. g. 2.32
     @SerialName("profile_path") override val profilePath: String? = null,
     @SerialName("cast_id") val castId: Int? = null,
-    @SerialName("character") val character: String,
+    @SerialName("character") val character: String?,
     @SerialName("credit_id") val creditId: String,
     @SerialName("order") val order: Int,
 ): TmdbAnyPerson
